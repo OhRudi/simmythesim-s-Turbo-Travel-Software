@@ -1,0 +1,6 @@
+This requires the python package bitarray. You can tell a lot of the code was rushed and hacked together, lol.
+
+The main file is the dbpf/dbpf_converter.py file. In the __main__ portion of the code. There's test code so I can decompress all files in the "C:\\Users\\Theo\\Documents\\Converted Files" folder. Change this to whatever path of the files you need to decompress are located.
+
+The actual UI programs are in the UI folder.
+Here you go! https://drive.google.com/file/d/1wd...iew?usp=sharing

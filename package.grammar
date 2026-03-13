@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ufwb version="1.17">
+    <grammar name="PACKAGE grammar" start="id:2" author="Theo" fileextension="package">
+        <description>Grammar for PACKAGE files</description>
+        <scripts>
+            <script name="Index Header" type="DataType" id="53">
+                <source language="Python"># custom data type script
+
+def parseByteRange(element, byteView, bitPos, bitLength, results):
+	# this method parses data starting at bitPos, bitLength bits are remaining
+	&quot;&quot;&quot;parseByteRange method&quot;&quot;&quot;
+
+	# create and set new value
+	value = Value()
+	value.setString(&quot;Value of custom element&quot;)
+
+	# how many bytes were processed?
+	processedBytes = 0
+	iteration = 0
+
+	results.addElement(element, processedBytes, iteration, value)
+
+	# return number of processed bytes
+	return processedBytes
+
+def fillByteRange(value, byteArray, bitPos, bitLength):
+	# this method translates edited values back to the file
+	&quot;&quot;&quot;fillByteRange method&quot;&quot;&quot;
+
+	# write an integer back to file
+	# byteArray.writeUnsignedIntBits(highWord, bitPos, bitLength, ENDIAN_BIG)
+</source>
+            </script>
+        </scripts>
+        <structure name="Indices" id="270" length="0" encoding="ISO_8859-1:1987" endian="big" signed="no" valueexpression="0"/>
+        <structure name="Index" id="36" encoding="ISO_8859-1:1987" endian="big" signed="no">
+            <number name="Type" id="20" type="integer" length="4"/>
+            <number name="Group" id="21" type="integer" length="4"/>
+            <number name="Instance Ex" id="22" type="integer" length="4"/>
+            <number name="Instance" id="23" type="integer" length="4"/>
+            <number name="Position" id="24" type="integer" length="4"/>
+            <number name="ExtendedCompressionType" id="25" type="integer" length="1" lengthunit="bit" endian="little"/>
+            <number name="Size" id="26" type="integer" length="31" lengthunit="bit" endian="little"/>
+            <number name="Size Decompressed" id="27" type="integer" length="4"/>
+            <number name="Compression Type" id="28" type="integer" length="2"/>
+            <number name="Commited" id="29" type="integer" length="2"/>
+        </structure>
+        <structure name="PACKAGE file" id="2" encoding="ISO_8859-1:1987" endian="little" signed="no">
+            <binary name="Identifier" id="3" length="4"/>
+            <structref name="FileVersion" id="5" structure="id:4"/>
+            <structref name="UserVersion" id="6" structure="id:4"/>
+            <binary name="Unused 1" id="7" length="4"/>
+            <number name="Creation Time" id="8" type="integer" length="4"/>
+            <number name="Update Time" id="9" type="integer" length="4"/>
+            <number name="Unused 2" id="10" type="integer" length="4"/>
+            <number name="EntryCount" id="11" type="integer" length="4"/>
+            <number name="RecordPositionLow" id="12" type="integer" length="4"/>
+            <number name="RecordSize" id="13" type="integer" length="4"/>
+            <binary name="Unused 3" id="14" length="12"/>
+            <number name="Unused 4" id="15" type="integer" length="4" endian="little"/>
+            <number name="RecordPosition" id="16" type="integer" length="8" endian="little"/>
+            <binary name="Padding" id="17" length="192" lengthunit="bit"/>
+            <binary name="Data" id="35" length="40"/>
+            <binary name="Flags" id="19" length="4"/>
+            <structref name="Index" id="489" structure="id:36"/>
+            <structref name="Index 2" id="490" structure="id:36"/>
+        </structure>
+        <structure name="Version" id="4" encoding="ISO_8859-1:1987" endian="little" signed="no">
+            <number name="Major" id="31" type="integer" length="4" endian="little"/>
+            <number name="Minor" id="32" type="integer" length="4"/>
+        </structure>
+    </grammar>
+</ufwb>

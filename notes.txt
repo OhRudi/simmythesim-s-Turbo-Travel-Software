@@ -1,0 +1,3 @@
+    python C:\Users\Theo\Desktop\retdec\bin\retdec-decompiler.py
+	
+files get slower to read the bigger they are
